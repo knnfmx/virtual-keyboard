@@ -4,19 +4,27 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background-color-light: #8c8c8c;
+  --background-color-dark: #2c2c2c;
+  --light: #404242;
+  --dark: #070808;
+  --keyboard-container-shadow: -3px -3px 8px var(--light), 2px 2px 8px var(--dark);
+}
 .content-wrapper {
   width: 768px;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
 .body {
-  background-color: #888888;
+  background-color: var(--background-color-dark);
 }
 
 .header {
-  background-color: #fcfcfc;
+  background-color: var(--background-color-light);
   width: 100%;
-  padding: 40px 0
+  padding: 10px 0
 }
 
 .title,
@@ -25,4 +33,29 @@
   margin: 5px 0;
 }
 
+.textarea {
+  min-width: 748px;
+  max-width: 748px;
+  min-height: 200px;
+  max-height: 200px;
+  margin: 20px 0;
+}
 
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 748px;
+  height: 260px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--background-color-dark);
+  box-shadow: var(--keyboard-container-shadow);
+
+}
+
+.keyboard__rows {
+  width: 100%;
+  height: 40px;
+  background-color: black;
+}
