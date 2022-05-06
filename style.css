@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content-wrapper {
+  width: 768px;
+  margin: 0 auto;
+}
+
+.body {
+  background-color: #888888;
+}
+
+.header {
+  background-color: #fcfcfc;
+  width: 100%;
+  padding: 40px 0
+}
+
+.title,
+.description {
+  text-align: center;
+  margin: 5px 0;
+}
+
+
