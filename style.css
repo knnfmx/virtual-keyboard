@@ -7,8 +7,15 @@
 :root {
   --background-color-light: #8c8c8c;
   --background-color-dark: #2c2c2c;
+  --font-color-light: #ffffff;
+  --font-color-dark: #8c8c8c;
+  --caps-disabled: #070808;
+  --caps-active: #41ff71;
+  --btn-active: #fdff6a;
+  --btn-inside-shadow: linear-gradient(to right bottom, var(--dark-inside-shadow), var(--light));
   --light: #404242;
   --dark: #070808;
+  --dark-inside-shadow: #0708087d;
   --keyboard-container-shadow: -3px -3px 8px var(--light), 2px 2px 8px var(--dark);
 }
 .content-wrapper {
@@ -44,7 +51,6 @@
 .keyboard {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   gap: 5px;
   width: 748px;
@@ -64,6 +70,10 @@
   gap: 7px;
 }
 
+.keyboard__rows:nth-child(3) {
+  width: calc(100% - 65px);
+}
+
 .rows__key {
   display: flex;
   flex-direction: column;
@@ -74,10 +84,25 @@
   padding: 5px 10px;
   border-radius: 10px;
   box-shadow: var(--keyboard-container-shadow);
+  background-color: var(--background-color-dark);
+  cursor: pointer;
+}
+
+.key_active {
+  background: var(--btn-inside-shadow);
+}
+.rows__key:hover > .key__lang_active {
+  color: var(--btn-active);
+}
+
+.key__lang_active {
+  color: var(--font-color-light);
 }
 .key__lang_shift {
   align-self: flex-end;
+  color: var(--font-color-dark);
 }
+
 .backspace {
   width: 90px;
 }
@@ -110,8 +135,7 @@
 .start,
 .fn,
 .del,
-.arrows
-.capslock,
+.arrows,
 .ctrl {
   align-items: center;
 }
@@ -123,5 +147,9 @@
   position: absolute;
   right: 10px;
   border-radius: 50%;
-  background-color: #070808;
+  background-color: var(--caps-disabled);
+}
+
+.capslock.capslock_active > .key__lang_active::after {
+  background-color: var(--caps-active);
 }

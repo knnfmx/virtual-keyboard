@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fourthKeysRow: ['shiftLeft', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '↑','shiftRight'],
     fourthKeysRowShift: ['', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', '',''],
     fifthKeysRow: ['ctrl', 'start', 'alt', 'whitespace', 'alt', 'fn', '←', '↓', '→', 'ctrl'],
-    // fifthKeysRowShift: ['ctrl', 'start', 'alt', 'whitespace', 'alt', 'fn', 'left', 'down', 'right', 'ctrl'],
   };
 
   let keysRowOne = document.createElement('div');
@@ -129,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     row.innerHTML = out;
   }
-  // TODO ADD CLASSES for other btns 
   function createKey() {
     for (let key in keyboardKeys) { 
       console.log(key);
@@ -146,11 +144,37 @@ document.addEventListener('DOMContentLoaded', () => {
         init(keyboardKeys[key], keysRowFour, keyboardKeys.fourthKeysRowShift);
       }
       if (key == 'fifthKeysRow') {
-        init(keyboardKeys[key], keysRowFive, );
+        init(keyboardKeys[key], keysRowFive);
       }
     }
   }
   createKey();
+
+  let key = document.querySelectorAll('.rows__key');
+  key.forEach(el => {
+    if (el.classList.contains('capslock')) {
+      el.addEventListener('mousedown', ev => {
+        if(ev.currentTarget.classList.contains('capslock_active')) {
+          ev.currentTarget.classList.remove('capslock_active');
+        } else {
+          ev.currentTarget.classList.add('capslock_active');
+        }
+        ev.currentTarget.classList.add('key_active');
+      });
+      el.addEventListener('mouseup', ev => {
+        ev.currentTarget.classList.remove('key_active');
+      });
+    } else {
+      el.addEventListener('mousedown', ev => {
+        ev.currentTarget.classList.add('key_active');
+      });
+      el.addEventListener('mouseup', ev => {
+        ev.currentTarget.classList.remove('key_active');
+      });
+    }
+  });
+ 
+
   document.onkeydown= function (ev) {
     console.log(ev.code);
   }
