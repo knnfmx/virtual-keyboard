@@ -44,10 +44,12 @@
 .keyboard {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
   width: 748px;
   height: 260px;
-  padding: 20px;
+  padding: 24px;
   border-radius: 10px;
   background-color: var(--background-color-dark);
   box-shadow: var(--keyboard-container-shadow);
@@ -55,7 +57,71 @@
 }
 
 .keyboard__rows {
+  display: flex;
+  justify-content: flex-start;
   width: 100%;
   height: 40px;
-  background-color: black;
+  gap: 7px;
+}
+
+.rows__key {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: var(--keyboard-container-shadow);
+}
+.key__lang_shift {
+  align-self: flex-end;
+}
+.backspace {
+  width: 90px;
+}
+.enter {
+  width: 60px;
+  height: 85px;
+}
+.tab {
+  width: 80px;
+}
+.shift-left {
+  width: 80px;
+  align-items: start;
+}
+.shift-right {
+  width: 120px;
+  align-items: end;
+}
+.ctrl {
+  width: 70px;
+}
+.capslock {
+  position: relative;
+  width: 70px;
+}
+.whitespace {
+  width: 240px;
+}
+.alt,
+.start,
+.fn,
+.del,
+.arrows
+.capslock,
+.ctrl {
+  align-items: center;
+}
+
+.capslock > .key__lang_active::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  right: 10px;
+  border-radius: 50%;
+  background-color: #070808;
 }
