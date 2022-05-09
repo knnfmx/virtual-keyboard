@@ -150,6 +150,14 @@
   background-color: var(--caps-disabled);
 }
 
-.capslock.capslock_active > .key__lang_active::after {
+.capslock._active > .key__lang_active::after {
   background-color: var(--caps-active);
+}
+
+.rows__key.capslock_active .key__lang_active{
+  text-transform: uppercase;
+}
+
+.rows__key.capslock_active .key__lang_shift{
+  text-transform: lowercase;
 }
