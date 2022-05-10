@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     secondKeysRowCode: ['Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Enter'],
     secondKeysRow: ['tab', 'q', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'del', 'enter'],
     secondKeysRowShift: ['', 'Q', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '', ''],
-    thirdKeysRowCode: [' CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Backslash'],
+    thirdKeysRowCode: ['CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Backslash'],
     thirdKeysRow: ['caps', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '\\'],
     thirdKeysRowShift: ['', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '\"', '|'],
     fourthKeysRowCode: ['ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp', 'ShiftRight'],
@@ -155,16 +155,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   createKey();
 
-  let key = document.querySelectorAll('.rows__key');
-  key.forEach(el => {
+  let keys = document.querySelectorAll('.rows__key');
+  keys.forEach(el => {
     if (el.classList.contains('capslock')) {
       el.addEventListener('mousedown', ev => {
         if(ev.currentTarget.classList.contains('_active')) {
           ev.currentTarget.classList.remove('_active');
-          key.forEach(el => el.classList.remove('capslock_active'));
+          keys.forEach(el => el.classList.remove('capslock_active'));
         } else {
           ev.currentTarget.classList.add('_active');
-          key.forEach(el => {
+          keys.forEach(el => {
             if(el.classList.contains('key-letters')) {
               el.classList.add('capslock_active');
             }
@@ -184,9 +184,22 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
- 
-
-  document.onkeydown= function (ev) {
+  document.onkeydown = function (ev) {
     console.log(ev.code);
-  }
+    let key = document.querySelector(`.rows__key[data-key="${ev.code}"]`);
+    if (key.classList.contains('capslock')) {
+      key.classList.toggle('_active');
+      keys.forEach(el => {
+            if(el.classList.contains('key-letters')) {
+              el.classList.toggle('capslock_active');
+            }
+          });
+    }
+    key.classList.add('key_active');
+  };
+  document.onkeyup = function (ev) {
+    let key = document.querySelector(`.rows__key[data-key="${ev.code}"]`);
+    key.classList.remove('key_active');
+    // keys.forEach(el => el.classList.remove('key_active'));
+  };
 });
