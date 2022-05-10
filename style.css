@@ -71,7 +71,7 @@
 }
 
 .keyboard__rows:nth-child(3) {
-  width: calc(100% - 65px);
+  width: calc(100% - 55px);
 }
 
 .rows__key {
@@ -107,11 +107,11 @@
   width: 90px;
 }
 .enter {
-  width: 60px;
+  width: 50px;
   height: 85px;
 }
 .tab {
-  width: 80px;
+  width: 40px;
 }
 .shift-left {
   width: 80px;
@@ -126,7 +126,7 @@
 }
 .capslock {
   position: relative;
-  width: 70px;
+  width: 80px;
 }
 .whitespace {
   width: 240px;
