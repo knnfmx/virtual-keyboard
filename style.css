@@ -42,11 +42,10 @@
 }
 
 .textarea {
-  min-width: 748px;
-  max-width: 748px;
-  min-height: 200px;
-  max-height: 200px;
+  width: 748px;
+  height: 200px;
   margin: 20px 0;
+  resize: none;
 }
 
 .keyboard {
