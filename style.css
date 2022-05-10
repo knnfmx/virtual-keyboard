@@ -16,7 +16,8 @@
   --light: #404242;
   --dark: #070808;
   --dark-inside-shadow: #0708087d;
-  --keyboard-container-shadow: -3px -3px 8px var(--light), 2px 2px 8px var(--dark);
+  --keyboard-container-shadow: -5px -5px 10px var(--light), 5px 5px 10px var(--dark);
+  --key-shadow: -3px -3px 8px var(--light), 2px 2px 8px var(--dark);
 }
 .content-wrapper {
   width: 768px;
@@ -52,10 +53,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
+  gap: 8px;
   width: 748px;
   height: 260px;
-  padding: 24px;
+  padding: 10px 24px;
   border-radius: 10px;
   background-color: var(--background-color-dark);
   box-shadow: var(--keyboard-container-shadow);
@@ -83,7 +84,7 @@
   height: 40px;
   padding: 5px 10px;
   border-radius: 10px;
-  box-shadow: var(--keyboard-container-shadow);
+  box-shadow: var(--key-shadow);
   background-color: var(--background-color-dark);
   cursor: pointer;
 }
