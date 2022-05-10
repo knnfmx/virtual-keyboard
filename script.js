@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     firstKeysRowCode: ['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'DIgit9', 'Digit0', 'Minus', 'Equal', 'Backspace'],
     firstKeysRow: ['`', '1', '2','3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace'],
     firstKeysRowShift: ['~', '!', '@','#', '$', '%', '^', '&', '*', '(', ')', '_', '+', ''],
-    secondKeysRowCode: ['Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Enter'],
-    secondKeysRow: ['tab', 'q', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'del', 'enter'],
+    secondKeysRowCode: ['Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Del', 'Enter'],
+    secondKeysRow: ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'del', 'enter'],
     secondKeysRowShift: ['', 'Q', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '', ''],
     thirdKeysRowCode: ['CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Backslash'],
     thirdKeysRow: ['caps', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '\\'],
@@ -184,8 +184,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+
   document.onkeydown = function (ev) {
-    console.log(ev.code);
     let key = document.querySelector(`.rows__key[data-key="${ev.code}"]`);
     if (key.classList.contains('capslock')) {
       key.classList.toggle('_active');
@@ -197,9 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     key.classList.add('key_active');
   };
+
   document.onkeyup = function (ev) {
     let key = document.querySelector(`.rows__key[data-key="${ev.code}"]`);
     key.classList.remove('key_active');
-    // keys.forEach(el => el.classList.remove('key_active'));
   };
 });
