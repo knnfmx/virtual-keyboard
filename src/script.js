@@ -160,13 +160,13 @@ document.addEventListener('DOMContentLoaded', () => {
   keys.forEach(el => {
     if (el.classList.contains('capslock')) {
       el.addEventListener('mousedown', ev => {
-        if(ev.currentTarget.classList.contains('_active')) {
+        if (ev.currentTarget.classList.contains('_active')) {
           ev.currentTarget.classList.remove('_active');
           keys.forEach(el => el.classList.remove('capslock_active'));
         } else {
           ev.currentTarget.classList.add('_active');
           keys.forEach(el => {
-            if(el.classList.contains('key-letters')) {
+            if (el.classList.contains('key-letters')) {
               el.classList.add('capslock_active');
             }
           });
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
       key.classList.toggle('_active');
       key.querySelector('.key__lang_active').style.color = 'var(--btn-active)';
       keys.forEach(el => {
-            if(el.classList.contains('key-letters')) {
+            if (el.classList.contains('key-letters')) {
               el.classList.toggle('capslock_active');
             }
           });
