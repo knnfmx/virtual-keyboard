@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     firstKeysRowShift: ['~', '!', '@','#', '$', '%', '^', '&', '*', '(', ')', '_', '+', ''],
     secondKeysRowCode: ['Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Delete', 'Enter'],
     secondKeysRow: ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'del', 'enter'],
-    secondKeysRowShift: ['', 'Q', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '', ''],
+    secondKeysRowShift: ['', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '', ''],
     thirdKeysRowCode: ['CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Backslash'],
     thirdKeysRow: ['caps', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', '\\'],
     thirdKeysRowShift: ['', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '\"', '|'],
@@ -157,6 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //Mouse event
 
+  function writeText() {
+    textArea.value += 'a';
+  }
+
   keys.forEach(el => {
     if (el.classList.contains('capslock')) {
       el.addEventListener('mousedown', ev => {
@@ -191,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.onkeydown = function (ev) {
     let key = document.querySelector(`.rows__key[data-key="${ev.code}"]`);
     console.log(ev.code);
+    writeText();
     if (key.classList.contains('capslock')) {
       key.classList.toggle('_active');
       key.querySelector('.key__lang_active').style.color = 'var(--btn-active)';
