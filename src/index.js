@@ -138,4 +138,40 @@ document.addEventListener('DOMContentLoaded', () => {
   createKey();
 
   let keys = document.querySelectorAll('.rows__key');
+
+  //Mouse event
+
+  function writeText() {
+    textArea.value += 'a';
+  }
+
+  keys.forEach(el => {
+    if (el.classList.contains('capslock')) {
+      el.addEventListener('mousedown', ev => {
+        if (ev.currentTarget.classList.contains('_active')) {
+          ev.currentTarget.classList.remove('_active');
+          keys.forEach(el => el.classList.remove('capslock_active'));
+        } else {
+          ev.currentTarget.classList.add('_active');
+          keys.forEach(el => {
+            if (el.classList.contains('key-letters')) {
+              el.classList.add('capslock_active');
+            }
+          });
+        }
+        ev.currentTarget.classList.add('key_active');
+      });
+      el.addEventListener('mouseup', ev => {
+        ev.currentTarget.classList.remove('key_active');
+      });
+    } else {
+      el.addEventListener('mousedown', ev => {
+        ev.currentTarget.classList.add('key_active');
+      });
+      el.addEventListener('mouseup', ev => {
+        ev.currentTarget.classList.remove('key_active');
+      });
+    }
+  });
+
 });
