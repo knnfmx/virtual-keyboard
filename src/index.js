@@ -115,4 +115,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     row.innerHTML = out;
   }
+
+  function createKey() {
+    for (let key in keyboardKeys) { 
+      if (key == 'firstKeysRow') {
+        init(keyboardKeys[key], keysRowOne, keyboardKeys.firstKeysRowShift, keyboardKeys.firstKeysRowCode);
+      }
+      if (key == 'secondKeysRow') {
+        init(keyboardKeys[key], keysRowTwo, keyboardKeys.secondKeysRowShift, keyboardKeys.secondKeysRowCode);
+      }
+      if (key == 'thirdKeysRow') {
+        init(keyboardKeys[key], keysRowThree, keyboardKeys.thirdKeysRowShift, keyboardKeys.thirdKeysRowCode);
+      }
+      if (key == 'fourthKeysRow') {
+        init(keyboardKeys[key], keysRowFour, keyboardKeys.fourthKeysRowShift, keyboardKeys.fourthKeysRowCode);
+      }
+      if (key == 'fifthKeysRow') {
+        init(keyboardKeys[key], keysRowFive, null, keyboardKeys.fifthKeysRowCode);
+      }
+    }
+  }
+  createKey();
+
+  let keys = document.querySelectorAll('.rows__key');
 });
