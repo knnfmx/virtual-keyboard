@@ -174,4 +174,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Keyboard event
+
+  document.onkeydown = function (ev) {
+    let key = document.querySelector(`.rows__key[data-key="${ev.code}"]`);
+    console.log(ev.code);
+    writeText();
+    if (key.classList.contains('capslock')) {
+      key.classList.toggle('_active');
+      key.querySelector('.key__lang_active').style.color = 'var(--btn-active)';
+      keys.forEach(el => {
+            if (el.classList.contains('key-letters')) {
+              el.classList.toggle('capslock_active');
+            }
+          });
+    } else if (key.classList.contains('whitespace')) {
+      key.classList.add('key_active');
+    } else {
+      key.classList.add('key_active');
+      key.querySelector('.key__lang_active').style.color = 'var(--btn-active)';
+    }
+    if (key.classList.contains('tab')) {
+      ev.preventDefault();
+    }
+  };
+
+  document.onkeyup = function (ev) {
+    let key = document.querySelector(`.rows__key[data-key="${ev.code}"]`);
+    if (key.classList.contains('whitespace')) {
+      key.classList.remove('key_active');
+    } else {
+      key.classList.remove('key_active');
+      key.querySelector('.key__lang_active').style.color = 'var(--font-color-light)';
+    }
+  };
+
 });
