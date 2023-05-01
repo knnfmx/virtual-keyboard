@@ -11,7 +11,7 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      favicon: "./src/assets/icons/keyboard-logo.png",
+      favicon: "./src/assets/icons/keyboard-icon.png",
       filename: "index.html",
       template: "./src/index.html",
     }),
