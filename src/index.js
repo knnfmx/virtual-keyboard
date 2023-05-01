@@ -1,4 +1,7 @@
 import keyboardKeys from "./modules/keyboardKeys";
+import "./assets/stylesheets/reset.css";
+import "./assets/stylesheets/style.css";
+
 document.addEventListener('DOMContentLoaded', () => {
   const BODY = document.querySelector('body');
   BODY.classList.add('body');
@@ -141,8 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //Mouse event
 
-  function writeText() {
-    textArea.value += 'a';
+  function writeText(code) {
+    textArea.value += code;
   }
 
   keys.forEach(el => {
@@ -178,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.onkeydown = function (ev) {
     let key = document.querySelector(`.rows__key[data-key="${ev.code}"]`);
-    console.log(ev.code);
-    writeText();
+    console.log(key);
+    writeText(key);
     if (key.classList.contains('capslock')) {
       key.classList.toggle('_active');
       key.querySelector('.key__lang_active').style.color = 'var(--btn-active)';
