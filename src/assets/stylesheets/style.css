@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color-light: #8c8c8c;
+  --background-color-dark: #2c2c2c;
+  --font-color-light: #ffffff;
+  --font-color-dark: #8c8c8c;
+  --caps-disabled: #070808;
+  --caps-active: #41ff71;
+  --btn-active: #fdff6a;
+  --btn-inside-shadow: linear-gradient(to right bottom, var(--dark-inside-shadow), var(--light));
+  --light: #404242;
+  --dark: #070808;
+  --dark-inside-shadow: #0708087d;
+  --keyboard-container-shadow: -5px -5px 10px var(--light), 5px 5px 10px var(--dark);
+  --key-shadow: -3px -3px 8px var(--light), 2px 2px 8px var(--dark);
+}
+.content-wrapper {
+  width: 768px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.body {
+  background-color: var(--background-color-dark);
+}
+
+.header {
+  background-color: var(--background-color-light);
+  width: 100%;
+  padding: 10px 0
+}
+
+.title,
+.description {
+  text-align: center;
+  margin: 5px 0;
+}
+
+.textarea {
+  width: 748px;
+  height: 200px;
+  margin: 20px 0;
+  resize: none;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 748px;
+  height: 260px;
+  padding: 10px 24px;
+  border-radius: 10px;
+  background-color: var(--background-color-dark);
+  box-shadow: var(--keyboard-container-shadow);
+
+}
+
+.keyboard__rows {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 40px;
+  gap: 7px;
+}
+
+.keyboard__rows:nth-child(3) {
+  width: calc(100% - 55px);
+}
+
+.rows__key {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: var(--key-shadow);
+  background-color: var(--background-color-dark);
+  cursor: pointer;
+}
+
+.key_active {
+  background: var(--btn-inside-shadow);
+}
+.rows__key:hover > .key__lang_active {
+  color: var(--btn-active);
+}
+
+.key__lang_active {
+  color: var(--font-color-light);
+}
+.key__lang_shift {
+  align-self: flex-end;
+  color: var(--font-color-dark);
+}
+
+.backspace {
+  width: 90px;
+}
+.enter {
+  width: 50px;
+  height: 85px;
+}
+.tab {
+  width: 40px;
+}
+.shift-left {
+  width: 80px;
+  align-items: start;
+}
+.shift-right {
+  width: 120px;
+  align-items: end;
+}
+.ctrl {
+  width: 70px;
+}
+.capslock {
+  position: relative;
+  width: 80px;
+}
+.whitespace {
+  width: 240px;
+}
+.alt,
+.start,
+.fn,
+.del,
+.arrows,
+.ctrl {
+  align-items: center;
+}
+
+.capslock > .key__lang_active::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  right: 10px;
+  border-radius: 50%;
+  background-color: var(--caps-disabled);
+}
+
+.capslock._active > .key__lang_active::after {
+  background-color: var(--caps-active);
+}
+
+.rows__key.capslock_active .key__lang_active{
+  text-transform: uppercase;
+}
+
+.rows__key.capslock_active .key__lang_shift{
+  text-transform: lowercase;
+}
